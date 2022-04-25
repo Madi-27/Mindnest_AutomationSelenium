@@ -149,12 +149,12 @@ public void invokebrowsers()
 public void validRegistrationTest(){            
           
 	WebElement PatientLogin_Email = driver.findElement(By.xpath("//*[@id=\"Email\"]"));
-    PatientLogin_Email.sendKeys("testjeni9900902@mailinator.com");
+    PatientLogin_Email.sendKeys("testjeni99008103@mailinator.com");
 
 
     
     WebElement PatientLogin_Password = driver.findElement(By.xpath("//*[@id=\"Password\"]"));
-    PatientLogin_Password.sendKeys("Test@00990012");
+    PatientLogin_Password.sendKeys("Test@0099001212");
 
     WebElement logging = driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/div/form/div/button"));
     logging.click();
@@ -411,7 +411,7 @@ listItems.get(0).click();
 	  
 	  
 			 try {
-					Thread.sleep(3000);
+					Thread.sleep(5000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -424,7 +424,7 @@ listItems.get(0).click();
 			 skiplicense.click();
 
 			 try {
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -454,24 +454,21 @@ listItems.get(0).click();
 			 
 			 WebElement medicationcontinue = driver.findElement(By.xpath("/html/body/div[2]/div/div[9]/div/form/button"));
 			 medicationcontinue.click();
-			 
-			 Safetussin DM (oral - liquid) 20 mg-200 mg/10 mL 
-			 
 
-			  WebElement addresses = driver.findElement(By.xpath("/html/body/div[2]/div/div[4]/div/form/div[2]/div[4]/input"));
+
+			  WebElement medico = driver.findElement(By.xpath("/html/body/div[2]/div/div[11]/div/form/div[1]/span/span[1]/span"));
 //			  addresses.click();
-		addresses.sendKeys("10425 Old Huffmeister Road, Texas, Cypress, 77429");
+		medico.sendKeys("Safetussin DM (oral - liquid) 20 mg-200 mg/10 mL");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		List <WebElement> listItems = driver.findElements(By.xpath("/html/body/div[3]/div"));
-		listItems.get(0).click();
+		List <WebElement> listmedications = driver.findElements(By.xpath("/html/body/div[2]/div/div[11]/div/form/div[1]/span/span[1]/span/ul/li[1]"));
+		listmedications.get(0).click();
 		
 		
-		/html/body/div[2]/div/div[11]/div/form/div[1]/span/span[1]/span/ul/li[1]
 				
 				
 			 
