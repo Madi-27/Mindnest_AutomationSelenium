@@ -1,6 +1,7 @@
 package com.testprosss.home;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -9,7 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExternalLobby {
 	WebDriver driver;
@@ -30,10 +33,6 @@ public class ExternalLobby {
 			FirefoxOptions firefoxOptions = new FirefoxOptions();
 		    firefoxOptions.setCapability("marionette", true);
 		    driver = new FirefoxDriver(firefoxOptions);
-			
-			
-			
-		
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(80));
@@ -47,7 +46,7 @@ public class ExternalLobby {
 			//verifyElemntsOnPageTest();
 			
 			
-			Thread.sleep(20000);
+			Thread.sleep(5000);
 
 			ExternallobbyFunc();
 			
@@ -76,15 +75,15 @@ public class ExternalLobby {
 	
 	@Test
 	public void ExternallobbyFunc(){    
+			
 		try {
-			Thread.sleep(6000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 //			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-	          
 		WebElement addPhNum = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[1]/div/form/div/input"));
-		addPhNum.sendKeys("(205) 757-9990");
+		addPhNum.sendKeys("(205) 558-5153");
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -93,7 +92,7 @@ public class ExternalLobby {
 		}	
 	    
 		WebElement addnumber = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[1]/div/form/button"));
-
+ 
 		addnumber.click();
 		
 		try {
@@ -200,29 +199,155 @@ public class ExternalLobby {
 		  WebElement genderone = driver.findElement(By.xpath("/html/body/span/span/span[2]/ul/li[2]"));
 		  genderone.click();
 		  
-		  
-		
-		  Select drpdwn=new Select(driver.findElement(By.xpath("/html/body/span/span/span[2]/ul/li[2]")));
-		    drpdwn.selectByVisibleText("Male");
-		    //drpdwn.selectByIndex(2);
-		    try {
-				Thread.sleep(2000);
+		  try {
+				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 //				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	
-//		  
-//		    WebElement element = driver.findElement(By.xpath(""));
-//	    JavascriptExecutor jsss= (JavascriptExecutor) driver;
-//	    jsss.executeScript("arguments[0].click();", element); 
+		
+		  Select drpdwn=new Select(driver.findElement(By.xpath("//*[@id=\"IndependentPatientDetailGender\"]")));
+		    drpdwn.selectByVisibleText("Male");
+		    //drpdwn.selectByIndex(2);
+		    try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		   	
+
+//		    WebElement emailss = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[5]/div/form/div[3]/div[4]/input"));
+//			  emailss.sendKeys("madihaiqbal523+20122@gmail.com");
 //		    
-		 
-		    WebElement btnsf = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div/form/button"));
+		      driver.findElement(By.cssSelector("#IndependentPatient-form .btn-next-fn")).click();
+		      
+		      try {
+					Thread.sleep(4000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	
+			   	
+		      WebElement verificationMM = driver.findElement(By.id("VerificationMM"));
+		      verificationMM.sendKeys("05");
+		      
+		      
+		      
+		      WebElement verificationDD = driver.findElement(By.id("VerificationDD"));
+		      verificationDD.sendKeys("05");
+		      
+		      
+		      
+		      
+		      
+		      WebElement verificationYYYY = driver.findElement(By.id("VerificationYYYY"));
+		      verificationYYYY.sendKeys("1991");
+		      
+		      try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	
+		      driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[3]/div/form/button")).click();
 
-			btnsf.click();
+		      try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	
+		      driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[4]/div/form/div[3]/ul/li/button")).click();
+		      
+		      
+		      try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		      WebElement providerdropdow = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[11]/div/form/div[3]/div/div/div/div[1]/span[1]/span[1]/span"));
+		      providerdropdow.click();
+		      
+//		      WebElement providersearch = driver.findElement(By.xpath("/html/body/span/span/span[1]/input"));
+//		      providersearch.sendKeys("Saqib Habib");
+//		      
+//		      WebElement providerdropdowt = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[11]/div/form/div[3]/div/div/div/div[1]/span[1]/span[1]/span"));
+//		      providerdropdowt.sendKeys("Saqib Habib");
+		      
+//		      String value = "Saqib Habib";
+//		      WebElement dropdown = driver.findElement(By.xpath("/html/body/span/span/span[2]"));
+//		      dropdown.click(); // assuming you have to click the "dropdown" to open it
+//	      dropdown.findElement(By.cssSelector("select2-QuestionnaireProviders-result-awhs-53c9e14d-f6f1-4099-b318-defb47ff87d2")).click();
+//	      
+//		      
+		      //String text = "Saqib Habib";
+//		      WebElement el = driver.findElement(By.cssSelector(".select2-results__option"));
+//		      
+//		      el.click();
+//		      
+		     
+		      
+		      
+		      
+//try {
+//	Thread.sleep(5000);
+//} catch (InterruptedException e) {
+//	// TODO Auto-generated catch block
+//	e.printStackTrace();
+//}
+		      
+		      
+		      WebElement dropdown = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[11]/div/form/div[3]/div/div/div/div[1]/span[1]"));
+		      dropdown.click(); // assuming you have to click the "dropdown" to open it
+		      List<WebElement> options = dropdown.findElements(By.tagName("li"));
+		      String searchText = "Saqib Habib";
+		      for (WebElement option : options)
+		      {
+		          if (option.getText().equals(searchText))
+		          {
+		              option.click(); // click the desired option
+		              break;
+		          }
+		      }
+		    
+		      
+		      
+		      
+		      
+		   // while the following loop runs, the DOM changes - 
+		   // page is refreshed, or element is removed and re-added
+		  
+		      
+		      
+			  
+		      
+		      
+		      
+		      
+		      
+		      //scroll to views
+//		      WebElement element = driver.findElement(By.xpath("//a[@href='itemDetail.php?id=19']"));    
+//		      JavascriptExecutor js = (JavascriptExecutor) driver;  
+//		      js.executeScript("arguments[0].scrollIntoView();",element);
+//		      element.click();
+		      
+		      
+		      
+		      
+		      
+			
+//			WebElement element = driver.findElement(By.id("SubmitButtonId"));
+//			JavascriptExecutor executor = (JavascriptExecutor)driver;
+//			executor.executeScript("arguments[0].click();", element);
 
-
+		      
+		      
 	}
+	
+	
+	
 	}
 
 
