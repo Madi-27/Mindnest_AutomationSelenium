@@ -1,15 +1,19 @@
 package com.testprosss.home;
 
+import java.text.Normalizer.Form;
 import java.time.Duration;
 import java.util.List;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,11 +32,15 @@ public class ExternalLobby {
 	{
 		try {
 			
-			System.setProperty("webdriver.gecko.driver","C:\\Users\\Madiha Iqbal\\Downloads\\geckodriver-v0.30.0-win64\\geckodriver.exe");
-			
-			FirefoxOptions firefoxOptions = new FirefoxOptions();
-		    firefoxOptions.setCapability("marionette", true);
-		    driver = new FirefoxDriver(firefoxOptions);
+			//System.setProperty("webdriver.gecko.driver","C:\\Users\\Madiha Iqbal\\Downloads\\geckodriver-v0.30.0-win64\\geckodriver.exe");
+			//System.setProperty("webdriver.ie.driver", "C:\\Users\\Madiha Iqbal\\Downloads\\IEDriverServer_Win32_4.3.0\\IEDriverServer.exe");
+			//FirefoxOptions firefoxOptions = new FirefoxOptions();
+		    //firefoxOptions.setCapability("marionette", true);
+		    
+			System.setProperty("webdriver.edge.driver", "C:\\Users\\Madiha Iqbal\\Downloads\\edgedriver_win64 (2)\\msedgedriver.exe");
+		    
+		driver   = new EdgeDriver();
+		    //driver = new FirefoxDriver(firefoxOptions);
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(80));
@@ -50,9 +58,7 @@ public class ExternalLobby {
 
 			ExternallobbyFunc();
 			
-		
-			   
-			
+	
 			
 			
 			
@@ -83,7 +89,7 @@ public class ExternalLobby {
 			e.printStackTrace();
 		}	
 		WebElement addPhNum = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[1]/div/form/div/input"));
-		addPhNum.sendKeys("(205) 558-5153");
+		addPhNum.sendKeys("(205) 694-34922");
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -101,7 +107,7 @@ public class ExternalLobby {
 //			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		
+		 
 		WebElement newPAtient = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[9]/div/form/div[3]/div[1]/ul/li[1]/label/span"));
 
 		newPAtient.click();
@@ -237,10 +243,7 @@ public class ExternalLobby {
 		      WebElement verificationDD = driver.findElement(By.id("VerificationDD"));
 		      verificationDD.sendKeys("05");
 		      
-		      
-		      
-		      
-		      
+		     
 		      WebElement verificationYYYY = driver.findElement(By.id("VerificationYYYY"));
 		      verificationYYYY.sendKeys("1991");
 		      
@@ -267,51 +270,143 @@ public class ExternalLobby {
 //					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		      WebElement providerdropdow = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[11]/div/form/div[3]/div/div/div/div[1]/span[1]/span[1]/span"));
-		      providerdropdow.click();
-		      
-//		      WebElement providersearch = driver.findElement(By.xpath("/html/body/span/span/span[1]/input"));
-//		      providersearch.sendKeys("Saqib Habib");
-//		      
-//		      WebElement providerdropdowt = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[11]/div/form/div[3]/div/div/div/div[1]/span[1]/span[1]/span"));
-//		      providerdropdowt.sendKeys("Saqib Habib");
-		      
-//		      String value = "Saqib Habib";
-//		      WebElement dropdown = driver.findElement(By.xpath("/html/body/span/span/span[2]"));
-//		      dropdown.click(); // assuming you have to click the "dropdown" to open it
-//	      dropdown.findElement(By.cssSelector("select2-QuestionnaireProviders-result-awhs-53c9e14d-f6f1-4099-b318-defb47ff87d2")).click();
-//	      
-//		      
-		      //String text = "Saqib Habib";
-//		      WebElement el = driver.findElement(By.cssSelector(".select2-results__option"));
-//		      
-//		      el.click();
-//		      
-		     
-		      
-		      
-		      
-//try {
-//	Thread.sleep(5000);
-//} catch (InterruptedException e) {
-//	// TODO Auto-generated catch block
-//	e.printStackTrace();
-//}
-		      
-		      
-		      WebElement dropdown = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[11]/div/form/div[3]/div/div/div/div[1]/span[1]"));
-		      dropdown.click(); // assuming you have to click the "dropdown" to open it
-		      List<WebElement> options = dropdown.findElements(By.tagName("li"));
-		      String searchText = "Saqib Habib";
-		      for (WebElement option : options)
-		      {
-		          if (option.getText().equals(searchText))
-		          {
-		              option.click(); // click the desired option
-		              break;
-		          }
-		      }
 		    
+//		      
+//		      WebElement xyz=driver.findElement(By.xpath("//*[@id=\"ProviderDetails-form\"]/div[3]/div/div/div/div[1]/span[1]"));
+//		      
+//
+//		      xyz.click();
+		      
+		   
+		      
+		      WebElement countrydropdown=driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[11]/div/form/div[3]/div/div/div/div[1]/span[1]"));
+		      JavascriptExecutor jsee = (JavascriptExecutor) driver;  
+		      jsee.executeScript("$(\"#QuestionnaireProviders\").select2('open'); $(\"#QuestionnaireProviders\").val($(\"#QuestionnaireProviders option:contains(Saqib Habib)\").val()).trigger('change'); $(\"#QuestionnaireProviders\").select2('close');");
+//		      
+		      
+		      
+		      
+		      WebElement btnCont = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[11]/div/form/div[4]/div/button"));
+		      btnCont.click();
+		      WebElement insurance_yescheckbox = driver.findElement(By.xpath("//*[@id=\"Insurance-yes\"]"));
+		      JavascriptExecutor yes_insu = (JavascriptExecutor) driver;  
+		      yes_insu.executeScript("arguments[0].click();", insurance_yescheckbox);
+
+		       
+		      WebElement insurance_continuee = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[12]/div/form/div[4]/div/button"));
+		      JavascriptExecutor cont_isu = (JavascriptExecutor) driver;  
+		      cont_isu.executeScript("arguments[0].click();", insurance_continuee);
+
+		      
+		      WebElement copay = driver.findElement(By.xpath("//*[@id=\"zeroId\"]"));
+		      JavascriptExecutor copays = (JavascriptExecutor) driver;  
+		      copays.executeScript("arguments[0].click();", copay);
+		      
+		      
+		      WebElement copay_cont = driver.findElement(By.xpath("//*[@id=\"copayButton\"]"));
+		      JavascriptExecutor copayscont = (JavascriptExecutor) driver;  
+		      copayscont.executeScript("arguments[0].click();", copay_cont);
+		      
+		      
+		      
+		      
+		      
+		      WebElement payment_cont = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[17]/div/div[4]/div/div/button"));
+		      JavascriptExecutor paymentscount = (JavascriptExecutor) driver;  
+		      paymentscount.executeScript("arguments[0].click();", payment_cont);
+		      
+		      //WebElement iframeMsg = driver.findElement(By.name("//*[@id=\"card-number-element\"]/div/iframe"));        
+		      driver.switchTo().frame(0);
+		      //driver.switchTo().defaultContent();
+		      
+		    //id of  AddPaymentMethodForm for css selector
+		      //InputElement is-empty Input Input--empty
+		      
+		      
+		      
+		      //InputElement
+		      try {
+					Thread.sleep(4000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	
+
+		      WebElement card_num = driver.findElement(By.xpath("//*[@id=\"root\"]/form/span[2]/div/div[2]/span/input"));
+		      card_num.sendKeys("4859320358673719");
+		    //*[@id="root"]/form/span[2]/div/div[2]/span/input
+		      try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		     
+		      //driver.switchTo().frame("//*[@id=\"card-expiry-element\"]/div/iframe");
+		      
+		      
+		   //By cssSelector = By.cssSelector(".is-empty[placeholder='MM / YY']");
+		        // or By.cssSelector(".field[data-test=testytest]")
+		        // or By.cssSelector(".field[data-test]")
+		//driver.findElement(cssSelector).sendKeys("11/24");
+		      
+		      
+		      WebElement elem = driver.findElement(By.xpath("//*[@id=\\\"card-expiry-element\\\"]/div/iframe"));
+		      //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", elem);
+		      
+		      elem.sendKeys("11/24");
+		      
+		      
+		     
+		      try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		      
+		      
+		      WebElement expiration_CVC = driver.findElement(By.xpath("//*[@id=\"root\"]/form/span[2]/span/input"));
+		      expiration_CVC.sendKeys("274");
+		      try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		      WebElement expiration_button = driver.findElement(By.id("//*[@id=\"btnAddPaymentMethod\"]"));
+		      JavascriptExecutor expire = (JavascriptExecutor) driver;  
+		      expire.executeScript("arguments[0].click();", expiration_button);
+		      
+		    
+		    
+		      
+		      // xpath of iframe //*[@id="card-number-element"]/div/iframe
+		      // fulxp /html/body/div[3]/div[3]/div/div/div[2]/form/div[2]/div[1]/div/div/iframe
+		      
+		      //JavascriptExecutor jseebtn = (JavascriptExecutor) driver;
+//jseebtn.executeScript("$('#button\\\\.btn-next-fn\\\\.continue').click()");
+		      
+		      
+
+		      
+		      //countrydropdown.click();
+	      
+//		
+//		      
+//		      for(int j=0; j<5;j++)
+//		    	  try {
+//		    	      WebElement elementName=driver.findElement(By.xpath("#ProviderDetails-Form #select2-QuestionnaireProviders-result-z9c5-53c9e14d-f6f1-4099-b318-defb47ff87d2"));
+//		    	      elementName.sendKeys("Saqib Habib");
+//		    	      break;
+//		    	  } catch(StaleElementReferenceException e){
+//		    	   e.toString();
+//				
+//		    	  System.out.println("Stale element error, trying ::  " + e.getMessage());
+//		    	  
+//		    	  }
+//		     
+//		      
 		      
 		      
 		      
