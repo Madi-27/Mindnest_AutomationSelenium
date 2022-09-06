@@ -166,7 +166,7 @@ public class ExternalLobby {
 			e.printStackTrace();
 		}	
 		WebElement continue_myself = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[2]/div/form/button"));
-
+  
 		continue_myself.click();
 		try {
 			Thread.sleep(3000);
@@ -349,6 +349,9 @@ public class ExternalLobby {
 		      
 		      //->>>>>Done till above
 		      
+		      //comment out 
+		      
+		      
 		      //WebElement iframeMsg = driver.findElement(By.name("//*[@id=\"card-number-element\"]/div/iframe"));        
 		      driver.switchTo().frame(0);
 		      //driver.switchTo().defaultContent();
@@ -366,10 +369,28 @@ public class ExternalLobby {
 //					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}	
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      //card details commenting
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
+		      
 
 		      WebElement card_num = driver.findElement(By.xpath("//*[@id=\"root\"]/form/span[2]/div/div[2]/span/input"));
 		      card_num.sendKeys("4859320358673719");
-		    //*[@id="root"]/form/span[2]/div/div[2]/span/input
 		      try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e) {
