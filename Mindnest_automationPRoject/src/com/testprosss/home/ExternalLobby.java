@@ -11,6 +11,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -19,11 +20,23 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExternalLobby {
-	WebDriver driver;
+	 WebDriver driver;
+		EdgeOptions options;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ExternalLobby externalloby = new ExternalLobby();
 		externalloby.invokebrowsers();
+		 
+//		   
+//	      EdgeOptions edgeOpts = new EdgeOptions();
+//	      edgeOpts.addArguments("allow-file-access-from-files");
+//	      edgeOpts.addArguments("use-fake-device-for-media-stream");
+//	      edgeOpts.addArguments("use-fake-ui-for-media-stream");
+//	      edgeOpts.addArguments("--disable-features=EnableEphemeralFlashPermission");
+//	      driver = new EdgeDriver(edgeOpts);
+//          driver.get("https://api.mindnest.app/lobby/provider");
+
+	
 
 	}
 	
@@ -39,14 +52,30 @@ public class ExternalLobby {
 		    
 			System.setProperty("webdriver.edge.driver", "C:\\Users\\Madiha Iqbal\\Downloads\\edgedriver_win64 (2)\\msedgedriver.exe");
 		    
-		driver   = new EdgeDriver();
+		//driver   = new EdgeDriver();
 		    //driver = new FirefoxDriver(firefoxOptions);
+			
+			 options = new EdgeOptions();
+//			options.setCapability("dom.webnotifications.enabled", 1);
+//			options.setCapability("permissions.default.microphone", 1);
+//			options.setCapability("permissions.default.camera", 1);
+			 
+			options.addArguments("allow-file-access-from-files");
+			options.addArguments("use-fake-device-for-media-stream");
+			options.addArguments("use-fake-ui-for-media-stream");
+			options.addArguments("--disable-features=EnableEphemeralFlashPermission");
+			driver = new EdgeDriver(options);
+		      
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(80));
 			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(80));
 			
+		
+		
+			
 			driver.get("https://api.mindnest.app/lobby/provider");
+			
 
 //			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 //			wait.until(ExpectedConditions.urlToBe("https://login.mindnest.app/intake/signup"));
@@ -89,9 +118,9 @@ public class ExternalLobby {
 			e.printStackTrace();
 		}	
 		WebElement addPhNum = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[1]/div/form/div/input"));
-		addPhNum.sendKeys("(205) 694-34922");
+		addPhNum.sendKeys("(205) 642-34707");
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 //			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -304,16 +333,21 @@ public class ExternalLobby {
 		      
 		      
 		      WebElement copay_cont = driver.findElement(By.xpath("//*[@id=\"copayButton\"]"));
-		      JavascriptExecutor copayscont = (JavascriptExecutor) driver;  
-		      copayscont.executeScript("arguments[0].click();", copay_cont);
+		      //JavascriptExecutor copayscont = (JavascriptExecutor) driver;  
+		      //copayscont.executeScript("arguments[0].click();", copay_cont);
+		      //to do list add copay executer javva to add payment method screen
 		      
 		      
+		      copay_cont.click();
+		      //to do payment method cont
+		      //below -> 
+		      //->>>>>>
 		      
+//		      WebElement payment_cont = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[17]/div/div[4]/div/div/button"));
+//		      JavascriptExecutor paymentscount = (JavascriptExecutor) driver;  
+//		      paymentscount.executeScript("arguments[0].click();", payment_cont);
 		      
-		      
-		      WebElement payment_cont = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[17]/div/div[4]/div/div/button"));
-		      JavascriptExecutor paymentscount = (JavascriptExecutor) driver;  
-		      paymentscount.executeScript("arguments[0].click();", payment_cont);
+		      //->>>>>Done till above
 		      
 		      //WebElement iframeMsg = driver.findElement(By.name("//*[@id=\"card-number-element\"]/div/iframe"));        
 		      driver.switchTo().frame(0);
@@ -321,6 +355,7 @@ public class ExternalLobby {
 		      
 		    //id of  AddPaymentMethodForm for css selector
 		      //InputElement is-empty Input Input--empty
+		      
 		      
 		      
 		      
@@ -349,96 +384,72 @@ public class ExternalLobby {
 		        // or By.cssSelector(".field[data-test=testytest]")
 		        // or By.cssSelector(".field[data-test]")
 		//driver.findElement(cssSelector).sendKeys("11/24");
+		      //driver.switchTo().frame(driver.findElement(By.xpath("")));
+		      driver.switchTo().defaultContent();
+
+		      WebElement iframe_by_title_mm_yy = driver.findElement(By.xpath("//*[@id=\"card-expiry-element\"]/div/iframe"));
+		      driver.switchTo().frame(iframe_by_title_mm_yy);
+
+		      driver.findElement(By.name("exp-date")).sendKeys("03/24");
+
+		      driver.switchTo().defaultContent();
+		      
+
+		      try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		      
 		      
-		      WebElement elem = driver.findElement(By.xpath("//*[@id=\\\"card-expiry-element\\\"]/div/iframe"));
-		      //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", elem);
+		      WebElement iframe_by_title_cvc = driver.findElement(By.xpath("//*[@id=\"card-cvc-element\"]/div/iframe"));
+		      driver.switchTo().frame(iframe_by_title_cvc);
+
+		      driver.findElement(By.name("cvc")).sendKeys("123");
+		      //WebElement expDate = driver.findElement(By.name("exp-date"));
+		      //expDate.sendKeys("12/33");
+		      try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		      
-		      elem.sendKeys("11/24");
+//		      
+
+		      driver.switchTo().defaultContent();
 		      
-		      
+		      WebElement elem_btn = driver.findElement(By.id("btnAddPaymentMethod"));
+		      //JavascriptExecutor save_btn = (JavascriptExecutor) driver;  
+		      //save_btn.executeScript("arguments[0].click();", elem_btn);
 		     
-		      try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		      
-		      
-		      WebElement expiration_CVC = driver.findElement(By.xpath("//*[@id=\"root\"]/form/span[2]/span/input"));
-		      expiration_CVC.sendKeys("274");
-		      try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		      WebElement expiration_button = driver.findElement(By.id("//*[@id=\"btnAddPaymentMethod\"]"));
-		      JavascriptExecutor expire = (JavascriptExecutor) driver;  
-		      expire.executeScript("arguments[0].click();", expiration_button);
-		      
-		    
-		    
-		      
-		      // xpath of iframe //*[@id="card-number-element"]/div/iframe
-		      // fulxp /html/body/div[3]/div[3]/div/div/div[2]/form/div[2]/div[1]/div/div/iframe
-		      
-		      //JavascriptExecutor jseebtn = (JavascriptExecutor) driver;
-//jseebtn.executeScript("$('#button\\\\.btn-next-fn\\\\.continue').click()");
-		      
-		      
+		      elem_btn.click();
 
+		      driver.switchTo().defaultContent();
 		      
-		      //countrydropdown.click();
-	      
-//		
-//		      
-//		      for(int j=0; j<5;j++)
-//		    	  try {
-//		    	      WebElement elementName=driver.findElement(By.xpath("#ProviderDetails-Form #select2-QuestionnaireProviders-result-z9c5-53c9e14d-f6f1-4099-b318-defb47ff87d2"));
-//		    	      elementName.sendKeys("Saqib Habib");
-//		    	      break;
-//		    	  } catch(StaleElementReferenceException e){
-//		    	   e.toString();
-//				
-//		    	  System.out.println("Stale element error, trying ::  " + e.getMessage());
-//		    	  
-//		    	  }
-//		     
-//		      
+//				      
+		      options.setCapability("dom.webnotifications.enabled", 1);
+				options.setCapability("permissions.default.microphone", 1);
+				options.setCapability("permissions.default.camera", 1);
+				driver = new EdgeDriver(options);
+				 try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 		      
-		      
-		      
-		      
-		   // while the following loop runs, the DOM changes - 
-		   // page is refreshed, or element is removed and re-added
+				WebElement agreE_btn = driver.findElement(By.xpath("//*[@id=\"tab_0\"]/div[2]/div/div[2]/button"));
+			      JavascriptExecutor agree_co = (JavascriptExecutor) driver;  
+			      agree_co.executeScript("arguments[0].click();", agreE_btn);
+			     
+				//agreE_btn.click();
+		     
 		  
-		      
-		      
-			  
-		      
-		      
-		      
-		      
-		      
-		      //scroll to views
-//		      WebElement element = driver.findElement(By.xpath("//a[@href='itemDetail.php?id=19']"));    
-//		      JavascriptExecutor js = (JavascriptExecutor) driver;  
-//		      js.executeScript("arguments[0].scrollIntoView();",element);
-//		      element.click();
-		      
-		      
-		      
-		      
-		      
-			
-//			WebElement element = driver.findElement(By.id("SubmitButtonId"));
-//			JavascriptExecutor executor = (JavascriptExecutor)driver;
-//			executor.executeScript("arguments[0].click();", element);
+				
 
-		      
-		      
+		  	
 	}
 	
 	
