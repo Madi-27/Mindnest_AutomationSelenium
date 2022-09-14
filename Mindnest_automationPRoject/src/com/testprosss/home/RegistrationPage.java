@@ -153,14 +153,16 @@ public void validRegistrationTest(){
     PatientSignUp_LastName.sendKeys("Jenifer");
          
     WebElement PatientSignUp_PhoneNumber = driver.findElement(By.xpath("//input[@name='PatientSignUp.PhoneNumber']"));
-    PatientSignUp_PhoneNumber.sendKeys("2056273508");
+    PatientSignUp_PhoneNumber.sendKeys("20576520093");
          
     WebElement PatientSignUp_Email = driver.findElement(By.xpath("//input[@name='PatientSignUp.Email']"));
-    PatientSignUp_Email.sendKeys("madihaiqbal+487105@gmail.com");
+    PatientSignUp_Email.sendKeys("madihaiqbal+8230@gmail.com");
    
     
+    
+    
     WebElement PatientSignUp_Password = driver.findElement(By.xpath("//input[@name='PatientSignUp.Password']"));
-    PatientSignUp_Password.sendKeys("Test@009900121200");
+    PatientSignUp_Password.sendKeys("Test@1230099");
      
 
    
@@ -168,7 +170,7 @@ public void validRegistrationTest(){
    boolean PatientSignUp_SMSNotification = driver.findElement(By.xpath("//input[@name='PatientSignUp.SmsNotification']")).isEnabled();
     //PatientSignUp_SMSNotification.click();
           try {
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -408,18 +410,18 @@ public void  mySelfInfoForm() {
 	
 	  
 	  
-//
+//-----------------------------------------------------
 //	   
-	  WebElement gender = driver.findElement(By.cssSelector("#IntakeIndependentPatientForm .select2-container "));
-	  gender.click();
+//	  WebElement gender = driver.findElement(By.cssSelector("#IntakeIndependentPatientForm .select2-container "));
+//	  gender.click();
+////	  
 //	  
-	  
-
-	  WebElement genderone = driver.findElement(By.xpath("//*[@id=\"select2-fn-IndependentGender-results\"]"));
-	  genderone.click();
-	
-	  Select drpdwn=new Select(driver.findElement(By.xpath("//*[@id=\"select2-fn-IndependentGender-results\"]")));
-	    drpdwn.selectByVisibleText("Male");
+//
+//	  WebElement genderone = driver.findElement(By.xpath("/html/body/div[2]/div/div[4]/div/form/div[1]/div[3]/span[1]"));
+//	  genderone.click();
+//	
+//	  Select drpdwn=new Select(driver.findElement(By.xpath("/html/body/div[2]/div/div[4]/div/form/div[1]/div[3]/span[1]")));
+//	    drpdwn.selectByVisibleText("Male");
 	    //drpdwn.selectByIndex(2);
 //	  
 //	  
@@ -434,9 +436,52 @@ public void  mySelfInfoForm() {
 //	  
 //	  
 //	  
-//	  
+//	-----------------------------------
+	   try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    WebElement gender = driver.findElement(By.cssSelector("#IntakeIndependentPatientForm .select2-container "));
+		  gender.click();
+//		  
+		 
+		
+
+		  WebElement genderone = driver.findElement(By.xpath("/html/body/div[2]/div/div[4]/div/form/div[1]/div[3]/select/option[2]"));
+		  JavascriptExecutor exc_drpdown = (JavascriptExecutor)driver;
+		  exc_drpdown.executeScript("arguments[0].scrollIntoView();",genderone);
+
+		  //exc_drpdown.executeScript("arguments[0].click();",  );
+		  genderone.click();
+		  
+		  try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		
+		  Select drpdwn=new Select(driver.findElement(By.xpath("/html/body/div[2]/div/div[4]/div/form/div[1]/div[3]/select/option[2]")));
+		    drpdwn.selectByVisibleText("Male");
+		    //drpdwn.selectByIndex(2);
+		    try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		   	
+	    
+	    
+	    
+	    
+	    
+	    
+	    //-----0-j-------------------------
 	  
-	  WebElement addresses = driver.findElement(By.xpath("/html/body/div[2]/div/div[4]/div/form/div[2]/div[4]/input"));
+	  WebElement addresses = driver.findElement(By.id("IndependentFullAddress"));
 	  addresses.sendKeys("Street, 4148 Circle Drive. City, Houston");
 	
 	  try {
