@@ -118,7 +118,7 @@ public class ExternalLobby {
 			e.printStackTrace();
 		}	
 		WebElement addPhNum = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[1]/div/form/div/input"));
-		addPhNum.sendKeys("(205) 642-34707");
+		addPhNum.sendKeys("(205) 642-09210");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -384,82 +384,7 @@ public class ExternalLobby {
 		      
 		      
 		      
-		      
-		      
-		      
-		      
-
-		      WebElement card_num = driver.findElement(By.xpath("//*[@id=\"root\"]/form/span[2]/div/div[2]/span/input"));
-		      card_num.sendKeys("4859320358673719");
-		      try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		     
-		      //driver.switchTo().frame("//*[@id=\"card-expiry-element\"]/div/iframe");
-		      
-		      
-		   //By cssSelector = By.cssSelector(".is-empty[placeholder='MM / YY']");
-		        // or By.cssSelector(".field[data-test=testytest]")
-		        // or By.cssSelector(".field[data-test]")
-		//driver.findElement(cssSelector).sendKeys("11/24");
-		      //driver.switchTo().frame(driver.findElement(By.xpath("")));
-		      driver.switchTo().defaultContent();
-
-		      WebElement iframe_by_title_mm_yy = driver.findElement(By.xpath("//*[@id=\"card-expiry-element\"]/div/iframe"));
-		      driver.switchTo().frame(iframe_by_title_mm_yy);
-
-		      driver.findElement(By.name("exp-date")).sendKeys("03/24");
-
-		      driver.switchTo().defaultContent();
-		      
-
-		      try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		      
-		      
-		      WebElement iframe_by_title_cvc = driver.findElement(By.xpath("//*[@id=\"card-cvc-element\"]/div/iframe"));
-		      driver.switchTo().frame(iframe_by_title_cvc);
-
-		      driver.findElement(By.name("cvc")).sendKeys("123");
-		      //WebElement expDate = driver.findElement(By.name("exp-date"));
-		      //expDate.sendKeys("12/33");
-		      try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		      
-//		      
-
-		      driver.switchTo().defaultContent();
-		      
-		      WebElement elem_btn = driver.findElement(By.id("btnAddPaymentMethod"));
-		      //JavascriptExecutor save_btn = (JavascriptExecutor) driver;  
-		      //save_btn.executeScript("arguments[0].click();", elem_btn);
-		     
-		      elem_btn.click();
-
-		      driver.switchTo().defaultContent();
-		      
-//				      
-		      options.setCapability("dom.webnotifications.enabled", 1);
-				options.setCapability("permissions.default.microphone", 1);
-				options.setCapability("permissions.default.camera", 1);
-				driver = new EdgeDriver(options);
-				 try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-//						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+		    
 		      
 				WebElement agreE_btn = driver.findElement(By.xpath("//*[@id=\"tab_0\"]/div[2]/div/div[2]/button"));
 			      JavascriptExecutor agree_co = (JavascriptExecutor) driver;  
