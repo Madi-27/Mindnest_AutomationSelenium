@@ -118,7 +118,7 @@ public class ExternalLobby {
 			e.printStackTrace();
 		}	
 		WebElement addPhNum = driver.findElement(By.xpath("/html/body/div[3]/div[1]/div[1]/div/form/div/input"));
-		addPhNum.sendKeys("(205) 642-09210");
+		addPhNum.sendKeys("(205) 663-24349");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -364,7 +364,7 @@ public class ExternalLobby {
 		      
 		      //InputElement
 		      try {
-					Thread.sleep(4000);
+					Thread.sleep(7000);
 				} catch (InterruptedException e) {
 //					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -389,17 +389,162 @@ public class ExternalLobby {
 				WebElement agreE_btn = driver.findElement(By.xpath("//*[@id=\"tab_0\"]/div[2]/div/div[2]/button"));
 			      JavascriptExecutor agree_co = (JavascriptExecutor) driver;  
 			      agree_co.executeScript("arguments[0].click();", agreE_btn);
-			     
+			    //InputElement
+			      try {
+						Thread.sleep(4000);
+					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				//agreE_btn.click();
 		     
-		  
-				
-
+			    //code for chat for external patient
+			  	
+			  	WebElement chat_toProvider = driver.findElement(By.xpath("/html/body/div[4]/div/div[5]/div[1]/div[3]/div[3]/div/ul/li[5]/button"));
+			  	chat_toProvider.click();
+			  	WebElement chat_text = driver.findElement(By.xpath("/html/body/div[4]/div/div[5]/div[2]/div/div[3]/div/div/input"));
+			  	
+			  	chat_text.sendKeys("this is for testing");
+			  //InputElement
+			      try {
+						Thread.sleep(4000);
+					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			  	WebElement chat_send = driver.findElement(By.xpath("/html/body/div[4]/div/div[5]/div[2]/div/div[3]/div/button"));
+			  	
+			  	chat_send.click();
+			  //InputElement
+			      try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			  	WebElement video_disabled = driver.findElement(By.xpath("/html/body/div[4]/div/div[5]/div[1]/div[3]/div[3]/div/ul/li[4]/button"));
+			  	video_disabled.click();
+			  	
+			  	 try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			  	WebElement audio_disabled = driver.findElement(By.xpath("/html/body/div[4]/div/div[5]/div[1]/div[3]/div[3]/div/ul/li[2]/button"));
+			  	audio_disabled.click();
+			  	 try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			  	 
+			 	WebElement ext_settings= driver.findElement(By.xpath("/html/body/div[4]/div/div[5]/div[1]/div[3]/div[3]/div/ul/li[1]/div/button"));
+			 	ext_settings.click();
+			 	
+			 	try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			 	
+			 	WebElement troubleShoot= driver.findElement(By.xpath("/html/body/div[4]/div/div[5]/div[1]/div[3]/div[3]/div/ul/li[1]/div/div/ul/li[2]/button"));
+			 	troubleShoot.click();
+			  	 
+			 	try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			  	
+			 	WebElement troubleShoot_close= driver.findElement(By.xpath("/html/body/div[12]/div/div/div[1]/button"));
+			 	troubleShoot_close.click();
+		
+			 	
+			  
 		  	//test ready for commit comit comit ready ready
+			      
+			      
+			      
 	}
 	
+	//bwlow is section for the payment method implementation 
 	
 	
-	}
+//	WebElement card_num = driver.findElement(By.xpath("//*[@id=\"root\"]/form/span[2]/div/div[2]/span/input"));
+//    card_num.sendKeys("4859320358673719");
+//    try {
+//			Thread.sleep(5000);
+//		} catch (InterruptedException e) {
+////			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//   
+//   
+//    driver.switchTo().defaultContent();
+//
+//    WebElement iframe_by_title_mm_yy = driver.findElement(By.xpath("//*[@id=\"card-expiry-element\"]/div/iframe"));
+//    driver.switchTo().frame(iframe_by_title_mm_yy);
+//
+//    driver.findElement(By.name("exp-date")).sendKeys("03/24");
+//
+//    driver.switchTo().defaultContent();
+//    
+//
+//    try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e) {
+////			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//    
+//    
+//    WebElement iframe_by_title_cvc = driver.findElement(By.xpath("//*[@id=\"card-cvc-element\"]/div/iframe"));
+//    driver.switchTo().frame(iframe_by_title_cvc);
+//
+//    driver.findElement(By.name("cvc")).sendKeys("123");
+//  
+//    try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException e) {
+////			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//    
+//  
+//
+//    driver.switchTo().defaultContent();
+//    
+//    WebElement elem_btn = driver.findElement(By.id("btnAddPaymentMethod"));
+//
+//    elem_btn.click();
+//
+//    driver.switchTo().defaultContent();
+//    
+//		      
+//    options.setCapability("dom.webnotifications.enabled", 1);
+//		options.setCapability("permissions.default.microphone", 1);
+//		options.setCapability("permissions.default.camera", 1);
+//		driver = new EdgeDriver(options);
+//		 try {
+//				Thread.sleep(3000);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+	
+	///above the code section is related to the payment method module
+	
+	
+	///////////////
+	
+	
 
+      
+	
+	
 
+}
